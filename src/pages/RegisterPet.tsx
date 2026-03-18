@@ -29,7 +29,7 @@ const RegisterPet = () => {
                  },
               });
               // data.image holds the path to image like /uploads/image-123.jpg
-              photoUrl = `${API_BASE_URL}${data.image}`;
+              photoUrl = data.image.startsWith('http') ? data.image : `${API_BASE_URL}${data.image}`;
           }
       }
 

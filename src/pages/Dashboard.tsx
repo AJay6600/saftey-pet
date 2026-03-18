@@ -108,7 +108,7 @@ const Dashboard = () => {
               const { data } = await api.post('/upload', formData, {
                  headers: { 'Content-Type': 'multipart/form-data' },
               });
-              photoUrl = `${API_BASE_URL}${data.image}`;
+              photoUrl = data.image.startsWith('http') ? data.image : `${API_BASE_URL}${data.image}`;
           }
       }
 
@@ -165,7 +165,7 @@ const Dashboard = () => {
                   const { data } = await api.post('/upload', formData, {
                       headers: { 'Content-Type': 'multipart/form-data' },
                   });
-                  photoUrl = `${API_BASE_URL}${data.image}`;
+                  photoUrl = data.image.startsWith('http') ? data.image : `${API_BASE_URL}${data.image}`;
               }
           }
 

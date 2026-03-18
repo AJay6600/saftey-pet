@@ -22,7 +22,7 @@ const PostAdoption = () => {
               const res = await api.post('/upload', formData, {
                   headers: { 'Content-Type': 'multipart/form-data' },
               });
-              photoUrl = `${API_BASE_URL}${res.data.image}`;
+              photoUrl = res.data.image.startsWith('http') ? res.data.image : `${API_BASE_URL}${res.data.image}`;
           }
       }
 

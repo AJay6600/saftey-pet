@@ -64,7 +64,7 @@ const AdminDashboard = () => {
                       'Content-Type': 'multipart/form-data',
                   },
               });
-              imageUrl = `${API_BASE_URL}${data.image}`;
+              imageUrl = data.image.startsWith('http') ? data.image : `${API_BASE_URL}${data.image}`;
           }
       }
 
